@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="20dp"
+    tools:context=".activity.UploadAdmin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Data"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/uploadImage1"
+                        android:layout_width="110dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="insert_Img"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/baseline_add_photo_alternate_24" />
+
+                    <ImageView
+                        android:id="@+id/uploadImage2"
+                        android:layout_width="110dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="insert_Img"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/baseline_add_photo_alternate_24" />
+
+                    <ImageView
+                        android:id="@+id/uploadImage3"
+                        android:layout_width="110dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="insert_Img"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/baseline_add_photo_alternate_24" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/nameTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter name"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/ratingTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter Rating"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/addressTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter Address"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/destinationTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter Destination"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/descriptionTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:gravity="start|top"
+                    android:hint="Enter description"
+                    android:inputType="textMultiLine"
+                    android:maxLines="6"
+                    android:minLines="4"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/priceTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter price"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/numberbedTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter number bed"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/numberBathTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_black"
+                    android:hint="Enter number bath"
+                    android:padding="16dp"
+                    android:textColor="@color/blue" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView"
+            android:layout_marginTop="20dp"
+            android:onClick="saveData"
+            android:text="Save"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</ScrollView>
