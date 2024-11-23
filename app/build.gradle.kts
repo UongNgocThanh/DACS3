@@ -66,4 +66,7 @@ dependencies {
 
     implementation ("com.tbuonomo:dotsindicator:5.0")
 
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
+
+
 }

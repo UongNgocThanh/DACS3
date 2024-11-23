@@ -10,52 +10,53 @@
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
         app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryHint="Search here .."
+            android:background="@color/white"
             app:iconifiedByDefault="false"
             app:queryBackground="@color/white"
-            android:background="@color/white"/>
+            app:queryHint="Search here .." />
 
 
     </com.google.android.material.card.MaterialCardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
+        android:id="@+id/coordinatorLayout2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+
 
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_gravity="bottom">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
@@ -87,10 +88,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/searchRedirect"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/selected_navigation"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
@@ -110,10 +113,11 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/favouriteRedirect"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
@@ -133,11 +137,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/profileRedirect"
+                    android:id="@+id/listBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.25"
+
+                    android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
@@ -145,7 +150,31 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_5" />
+                        app:srcCompat="@drawable/baseline_format_list_bulleted_24" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="List Booked"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profileRedirect"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        app:srcCompat="@drawable/baseline_logout_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -157,5 +186,8 @@
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

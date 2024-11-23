@@ -5,13 +5,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dacs3_uongngocthanh_22iteb071.R
 import com.example.dacs3_uongngocthanh_22iteb071.databinding.ActivityUploadAdminBinding
 import com.example.dacs3_uongngocthanh_22iteb071.model.HotelModel
 import com.google.firebase.database.*
@@ -126,7 +124,7 @@ class UploadAdmin : AppCompatActivity() {
                     binding.numberbedTxt.text.clear()
                     binding.numberBathTxt.text.clear()
                     picUrl1.clear()
-                    clearImageViews()
+//                    clearImageViews()
                     Toast.makeText(this@UploadAdmin, "Data inserted", Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener {
                     Toast.makeText(this@UploadAdmin, "Data not inserted", Toast.LENGTH_SHORT).show()
@@ -139,9 +137,9 @@ class UploadAdmin : AppCompatActivity() {
         })
     }
 
-    private fun clearImageViews() {
-        binding.uploadImage1.setImageResource(R.drawable.baseline_add_photo_alternate_24)
-        binding.uploadImage2.setImageResource(R.drawable.baseline_add_photo_alternate_24)
-        binding.uploadImage3.setImageResource(R.drawable.baseline_add_photo_alternate_24)
-    }
+//    private fun clearImageViews() {
+//        binding.uploadImage1.setImageResource(R.drawable.baseline_add_photo_alternate_24)
+//        binding.uploadImage2.setImageResource(R.drawable.baseline_add_photo_alternate_24)
+//        binding.uploadImage3.setImageResource(R.drawable.baseline_add_photo_alternate_24)
+//    }
 }

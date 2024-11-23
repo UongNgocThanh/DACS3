@@ -89,9 +89,11 @@
                     android:id="@+id/viewPageSlider"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:layout_marginTop="4dp"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,19 +131,22 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sontraRedirect"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/grey_oval_bg">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_1" />
+                            app:shapeAppearanceOverlay="@style/circular"
+                            app:srcCompat="@drawable/sontra" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -149,7 +154,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Home"
+                        android:text="Sơn Trà"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -163,19 +168,21 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/camleRedirect"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/grey_oval_bg">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_2" />
+                            app:shapeAppearanceOverlay="@style/circular"
+                            app:srcCompat="@drawable/camle" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -183,7 +190,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Apartment"
+                        android:text="Quận Cẩm Lệ"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -197,19 +204,21 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/haichauRedirect"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/grey_oval_bg">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_3" />
+                            app:shapeAppearanceOverlay="@style/circular"
+                            app:srcCompat="@drawable/haichau" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -217,7 +226,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Villa"
+                        android:text="Hải Châu"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -231,19 +240,21 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/thanhkheRedirect"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/grey_oval_bg">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_4" />
+                            app:shapeAppearanceOverlay="@style/circular"
+                            app:srcCompat="@drawable/thanhkhe" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -251,7 +262,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Bangola"
+                        android:text="Thanh Khê"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -265,19 +276,21 @@
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/nguhanhsonRedirect"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/grey_oval_bg">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_5" />
+                            app:shapeAppearanceOverlay="@style/circular"
+                            app:srcCompat="@drawable/nguhanhson" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -285,7 +298,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Empty Land"
+                        android:text="Ngũ Hành Sơn"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -482,7 +495,7 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_5" />
+                        app:srcCompat="@drawable/baseline_logout_24" />
 
                     <TextView
                         android:layout_width="match_parent"

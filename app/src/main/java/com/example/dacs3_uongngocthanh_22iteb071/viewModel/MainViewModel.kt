@@ -22,6 +22,10 @@ class MainViewModel:ViewModel() {
 
     val banner : LiveData<List<SliderModel>> = _banner
 
+    private val _destination = MutableLiveData<MutableList<HotelModel>>()
+
+    val destination : LiveData<MutableList<HotelModel>> = _destination
+
     fun loadBanners(){
         val Ref = firebaseDatabase.getReference("Banner")
         Ref.addValueEventListener(object : ValueEventListener{
@@ -62,5 +66,27 @@ class MainViewModel:ViewModel() {
 
         })
     }
+    fun loadHotelsByDestination(destination:String) {
+        val ref = FirebaseDatabase.getInstance().getReference("Hotel")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<HotelModel>()
+                for (childSnapshot in snapshot.children) {
+                    val hotel = childSnapshot.getValue(HotelModel::class.java)
+                    if (hotel != null && hotel.destination == destination) {
+                        lists.add(hotel)
+                    }
+                }
+                _destination.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle error
+            }
+        })
+    }
+
+
+
 
 }

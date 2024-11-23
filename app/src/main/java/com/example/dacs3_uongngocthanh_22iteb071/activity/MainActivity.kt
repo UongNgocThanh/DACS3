@@ -23,9 +23,52 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.profileRedirect.setOnClickListener{
+            startActivity(Intent(this,LoginPage::class.java))
+        }
+        binding.searchEdt.setOnClickListener{
+            startActivity(Intent(this,SearchActivity::class.java))
+        }
+
         binding.listBtn.setOnClickListener{
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
+        binding.searchRedirect.setOnClickListener{
+            startActivity(Intent(this@MainActivity,SearchActivity::class.java))
+        }
+        binding.nguhanhsonRedirect.setOnClickListener {
+            val intent = Intent(this@MainActivity, DestinationActivity::class.java)
+            intent.putExtra("destination", "Ngu Hanh Son")
+            startActivity(intent)
+        }
+
+        binding.sontraRedirect.setOnClickListener {
+            val intent = Intent(this@MainActivity, DestinationActivity::class.java)
+            intent.putExtra("destination", "Son Tra")
+            startActivity(intent)
+        }
+        binding.thanhkheRedirect.setOnClickListener {
+            val intent = Intent(this@MainActivity, DestinationActivity::class.java)
+            intent.putExtra("destination", "Thanh Khe")
+            startActivity(intent)
+        }
+
+        binding.haichauRedirect.setOnClickListener {
+            val intent = Intent(this@MainActivity, DestinationActivity::class.java)
+            intent.putExtra("destination", "Hai Chau")
+            startActivity(intent)
+        }
+        binding.camleRedirect.setOnClickListener {
+            val intent = Intent(this@MainActivity, DestinationActivity::class.java)
+            intent.putExtra("destination", "Cam Le")
+            startActivity(intent)
+        }
+
+// Thêm các nút khác tương tự
+
+
+// Thêm các nút khác tương tự
+
         innitBanner()
         innitHotelRecommended()
     }
@@ -67,5 +110,6 @@ class MainActivity : AppCompatActivity() {
         })
         viewModer.loadHotelRecommended()
     }
+
 
 }

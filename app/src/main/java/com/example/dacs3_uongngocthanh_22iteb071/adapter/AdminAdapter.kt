@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.dacs3_uongngocthanh_22iteb071.R
-import com.example.dacs3_uongngocthanh_22iteb071.databinding.ViewholderCartItemBinding
-import com.example.dacs3_uongngocthanh_22iteb071.model.HotelCartItem
+import com.example.dacs3_uongngocthanh_22iteb071.databinding.ViewholderItemBinding
+import com.example.dacs3_uongngocthanh_22iteb071.model.HotelModel
 
-class CartAdapter(private val context: Context, private val cartItems: MutableList<HotelCartItem>) :
-    RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class AdminAdapter(private val context: Context, private val hotelItems: MutableList<HotelModel>) :
+    RecyclerView.Adapter<AdminAdapter.CartViewHolder>() {
 
 
     private var selectedItemPosition: Int = RecyclerView.NO_POSITION
@@ -26,37 +25,37 @@ class CartAdapter(private val context: Context, private val cartItems: MutableLi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val binding = ViewholderCartItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ViewholderItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CartViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        holder.bind(cartItems[position])
+        holder.bind(hotelItems[position])
     }
 
     override fun getItemCount(): Int {
-        return cartItems.size
+        return hotelItems.size
     }
 
-    fun addItem(item: HotelCartItem) {
-        cartItems.add(item)
-        notifyItemInserted(cartItems.size - 1)
-    }
+//    fun addItem(item: HotelCartItem) {
+//        hotelItems.add(item)
+//        notifyItemInserted(hotelItems.size - 1)
+//    }
 
     fun clear() {
-        cartItems.clear()
+        hotelItems.clear()
         notifyDataSetChanged()
     }
 
-    fun getItem(position: Int): HotelCartItem? {
-        if (position in 0 until cartItems.size) {
-            return cartItems[position]
+    fun getItem(position: Int): HotelModel? {
+        if (position in 0 until hotelItems.size) {
+            return hotelItems[position]
         }
         return null
     }
     fun removeItem(position: Int) {
         // Xóa phần tử tại vị trí đã cho trong danh sách
-        cartItems.removeAt(position)
+        hotelItems.removeAt(position)
         // Thông báo cho RecyclerView biết rằng có sự thay đổi trong dữ liệu
         notifyItemRemoved(position)
     }
@@ -65,7 +64,7 @@ class CartAdapter(private val context: Context, private val cartItems: MutableLi
 
     }
 
-    inner class CartViewHolder(private val binding: ViewholderCartItemBinding) :
+    inner class CartViewHolder(private val binding: ViewholderItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
@@ -85,7 +84,7 @@ class CartAdapter(private val context: Context, private val cartItems: MutableLi
 
 
 
-        fun bind(item: HotelCartItem) {
+        fun bind(item: HotelModel) {
             // Binding dữ liệu vào itemView
 
             // Kiểm tra xem itemView hiện tại có phải là phần tử được chọn hay không
@@ -96,26 +95,12 @@ class CartAdapter(private val context: Context, private val cartItems: MutableLi
                 // Thiết lập background cho itemView khi không được chọn
                 binding.root.background = null
             }
-            binding.apply {
-                hotelname.text = item.hotelName
-                usernameCart.text = "Họ Tên: "+item.fullName
-                phoneCart.text = "Số điện thoại: "+item.phone
-                numberRoomCart.text = "Số phòng đặt: "+item.numberRoom
-                //loại bỏ dấu $
-                val price = item.price.substring(1).toInt()
-                // Tính toán giá tổng
-                val totalPrice = "$"+price * item.numberRoom.toInt()
-                priceTotal.text = "${totalPrice}/Day".toString()
 
-                Glide.with(context)
-                    .load(item.picMainUrl)
-                    .into(picCart)
-            }
         }
-        private fun CartAdapter.updateItems(newItems: List<HotelCartItem>) {
-            this.cartItems.clear()
-            this.cartItems.addAll(newItems)
-            notifyDataSetChanged()
-        }
+//        private fun AdminAdapter.updateItems(newItems: List<HotelCartItem>) {
+//            this.hotelItems.clear()
+//            this.hotelItems.addAll(newItems)
+//            notifyDataSetChanged()
+//        }
     }
 }

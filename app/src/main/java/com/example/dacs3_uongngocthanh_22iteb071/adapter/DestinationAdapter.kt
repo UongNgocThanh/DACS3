@@ -12,20 +12,20 @@ import com.example.dacs3_uongngocthanh_22iteb071.activity.DetailActivity
 import com.example.dacs3_uongngocthanh_22iteb071.databinding.ViewholderItemBinding
 import com.example.dacs3_uongngocthanh_22iteb071.model.HotelModel
 
-class HotelRecommendedAdapter(val hotels:MutableList<HotelModel>):RecyclerView.Adapter<HotelRecommendedAdapter.ViewHolder>() {
+class DestinationAdapter(val hotels:MutableList<HotelModel>):RecyclerView.Adapter<DestinationAdapter.ViewHolder>() {
     private var context : Context? = null
     class ViewHolder(val binding: ViewholderItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HotelRecommendedAdapter.ViewHolder {
+    ): DestinationAdapter.ViewHolder {
          context = parent.context
         val binding=ViewholderItemBinding.inflate(LayoutInflater.from(context),parent,false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HotelRecommendedAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DestinationAdapter.ViewHolder, position: Int) {
         holder.binding.titleTxt.text = hotels[position].name
         holder.binding.addressTxt.text=hotels[position].address
         holder.binding.priceTxt.text=hotels[position].price

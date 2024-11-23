@@ -47,7 +47,6 @@ class LoginPage : AppCompatActivity() {
         // Check for admin credentials
         if (username == "thanhadmin" && password == "123") {
             Toast.makeText(this@LoginPage, "Admin Login Successful", Toast.LENGTH_SHORT).show()
-//            startActivity(Intent(this@LoginPage, AdminActivity::class.java))
             val intent = Intent(this,AdminActivity::class.java)
             startActivity(intent)
 //            finish()

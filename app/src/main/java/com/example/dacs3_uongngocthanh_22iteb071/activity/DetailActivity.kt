@@ -5,19 +5,15 @@
 package com.example.dacs3_uongngocthanh_22iteb071.activity
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.dacs3_uongngocthanh_22iteb071.adapter.ImageAdapter
-import com.example.dacs3_uongngocthanh_22iteb071.adapter.SliderAdapter
 import com.example.dacs3_uongngocthanh_22iteb071.databinding.ActivityDetailBinding
 import com.example.dacs3_uongngocthanh_22iteb071.model.HotelCartItem
 import com.example.dacs3_uongngocthanh_22iteb071.model.HotelModel
-import com.example.dacs3_uongngocthanh_22iteb071.model.SliderModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -64,10 +60,10 @@ class DetailActivity : BaseActivity() {
         hotel = intent.getParcelableExtra("object")!!
         binding.nameTxt.text = hotel.name
         binding.addressTxt.text = hotel.address
-        binding.priceTxt.text = hotel.price.toString()
+        binding.priceTxt.text =  hotel.price
         binding.bathroomTxt.text = hotel.numberbath.toString()
         binding.bedTxt.text = hotel.numberbed.toString()
-        binding.rateTxt.text = "${hotel.rate}"
+        binding.rateTxt.text = "${hotel.rate} Rating"
         binding.descriptionTxt.text = hotel.description
         binding.backBtn.setOnClickListener { finish() }
 

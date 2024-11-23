@@ -3,7 +3,6 @@ package com.example.dacs3_uongngocthanh_22iteb071.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import com.example.dacs3_uongngocthanh_22iteb071.R
 
 open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,11 +5,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dacs3_uongngocthanh_22iteb071.adapter.CartAdapter
+import com.example.dacs3_uongngocthanh_22iteb071.adapter.HotelRecommendedAdapter
 import com.example.dacs3_uongngocthanh_22iteb071.databinding.ActivityCartBinding
 import com.example.dacs3_uongngocthanh_22iteb071.model.HotelCartItem
+import com.example.dacs3_uongngocthanh_22iteb071.viewModel.SearchCartViewModel
+import com.example.dacs3_uongngocthanh_22iteb071.viewModel.SearchViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -20,6 +26,8 @@ class CartActivity : BaseActivity() {
     private lateinit var binding: ActivityCartBinding
     private lateinit var cartAdapter: CartAdapter
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var viewModel: SearchCartViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +39,45 @@ class CartActivity : BaseActivity() {
             showConfirmationDialog()
         }
 
+        binding.profileRedirect.setOnClickListener{
+            startActivity(Intent(this,LoginPage::class.java))
+        }
+        binding.listBtn.setOnClickListener{
+            startActivity(Intent(this@CartActivity, CartActivity::class.java))
+        }
+        binding.searchRedirect.setOnClickListener{
+            startActivity(Intent(this@CartActivity,SearchActivity::class.java))
+        }
+        binding.homeRedirect.setOnClickListener{
+            startActivity(Intent(this@CartActivity,MainActivity::class.java))
+        }
+        viewModel = ViewModelProvider(this).get(SearchCartViewModel::class.java)
 
+        cartAdapter = CartAdapter(this,mutableListOf())
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager= GridLayoutManager(this,2)
+        binding.recyclerView.adapter = cartAdapter
 
         // Initialize RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         cartAdapter = CartAdapter(this, mutableListOf())
         binding.recyclerView.adapter = cartAdapter
+
+//        viewModel.products.observe(this, {
+//                products -> cartAdapter.updateItems(products)
+//        })
+
+        // Bộ lọc cho SearchView
+        binding.searchBtn.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { viewModel.searchProducts(it) }
+                return true
+            }
+        })
 
         // Initialize Firebase Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("Cart")
@@ -79,15 +120,15 @@ class CartActivity : BaseActivity() {
     private fun showConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Xác nhận hủy")
-        builder.setMessage("Bạn có thực sự muốn hủy không?")
+        builder.setMessage("Bạn có thực sự muốn hủy đặt phòng này không?")
 
         // Nếu người dùng nhấn Yes, thực hiện hành động hủy
-        builder.setPositiveButton("Yes") { dialog, which ->
+        builder.setPositiveButton("Yes sir") { dialog, which ->
             cancelAction()
         }
 
         // Nếu người dùng nhấn No, đóng hộp thoại
-        builder.setNegativeButton("No") { dialog, which ->
+        builder.setNegativeButton("No ") { dialog, which ->
             dialog.dismiss()
         }
 

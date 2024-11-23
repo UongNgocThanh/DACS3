@@ -25,7 +25,7 @@
 
                 >
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/picMain"
                     android:layout_width="0dp"
                     android:layout_height="450dp"
